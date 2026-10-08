@@ -28,7 +28,6 @@
             width: 100%;
         }
 
-        /* header */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -86,6 +85,24 @@
             color: #2ecc71;
         }
 
+        .balance-badge {
+            background: #1e4e3c;
+            color: #b3ffcf;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: 1px solid #2ecc71;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .balance-badge i {
+            color: #f9c74f;
+        }
+
         .user-badge {
             background: #1f3b52;
             padding: 0.4rem 1.2rem;
@@ -108,7 +125,6 @@
             color: #f9c74f;
         }
 
-        /* grid layout */
         .dashboard {
             display: grid;
             grid-template-columns: 1.1fr 1.9fr;
@@ -116,7 +132,6 @@
             margin-bottom: 1.5rem;
         }
 
-        /* cards */
         .card {
             background: #0f1e2f;
             border: 1px solid #24425f;
@@ -143,7 +158,6 @@
             color: #f9c74f;
         }
 
-        /* payment box */
         .pay-options {
             display: flex;
             flex-direction: column;
@@ -160,10 +174,18 @@
             align-items: center;
             border: 1px solid #2e5270;
             transition: all 0.1s;
+            cursor: pointer;
         }
 
         .pay-tier:hover {
             border-color: #4b7ea0;
+            background: #102438;
+        }
+
+        .pay-tier.selected {
+            border-color: #f9c74f;
+            background: #152e44;
+            box-shadow: 0 0 15px #f9c74f40;
         }
 
         .pay-tier .odds {
@@ -267,8 +289,68 @@
             box-shadow: 0 2px 0 #0c3a28;
         }
 
+        .btn-danger {
+            background: #6e1b1b;
+            border-color: #b04a4a;
+            box-shadow: 0 6px 0 #3a0c0c;
+        }
+
+        .btn-danger:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #3a0c0c;
+        }
+
+        .btn-warning {
+            background: #6e4b1b;
+            border-color: #b08b4a;
+            box-shadow: 0 6px 0 #3a280c;
+        }
+
+        .btn-warning:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #3a280c;
+        }
+
         .btn i {
             font-size: 1.1rem;
+        }
+
+        .btn-sm {
+            padding: 0.4rem 0.9rem;
+            font-size: 0.8rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: 0.15s;
+        }
+
+        .btn-approve {
+            background: #1b6e4b;
+        }
+
+        .btn-approve:hover {
+            background: #248f61;
+        }
+
+        .btn-reject {
+            background: #6e1b1b;
+        }
+
+        .btn-reject:hover {
+            background: #8f2424;
+        }
+
+        .btn-mark {
+            background: #1f4d6e;
+        }
+
+        .btn-mark:hover {
+            background: #2a6a94;
         }
 
         .status-message {
@@ -278,7 +360,6 @@
             min-height: 1.5rem;
         }
 
-        /* right side */
         .right-stack {
             display: flex;
             flex-direction: column;
@@ -306,7 +387,6 @@
             color: #f9c74f;
         }
 
-        /* live standings table */
         .standings-table {
             width: 100%;
             border-collapse: collapse;
@@ -346,7 +426,6 @@
             text-align: right;
         }
 
-        /* match picks */
         .picks-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -393,7 +472,6 @@
             font-size: 1.3rem;
         }
 
-        /* leaders board */
         .leaders-list {
             display: flex;
             flex-direction: column;
@@ -442,7 +520,6 @@
             align-items: center;
         }
 
-        /* utility */
         .mt-2 {
             margin-top: 0.8rem;
         }
@@ -451,7 +528,6 @@
             color: #f9c74f;
         }
 
-        /* modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -475,11 +551,13 @@
             background: #0f1e2f;
             border-radius: 32px;
             padding: 2rem;
-            max-width: 440px;
+            max-width: 480px;
             width: 100%;
             border: 1px solid #2a4b6e;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
             position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .modal .close-btn {
@@ -570,7 +648,6 @@
             min-height: 1.2rem;
         }
 
-        /* admin panel */
         .admin-panel {
             display: none;
             width: 100%;
@@ -591,6 +668,7 @@
             border: 1px solid #24425f;
             border-radius: 28px;
             padding: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .admin-card h3 {
@@ -610,7 +688,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
-            max-height: 300px;
+            max-height: 400px;
             overflow-y: auto;
         }
 
@@ -634,44 +712,21 @@
 
         .pending-item .msg-text {
             color: #8bb3d4;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             word-break: break-all;
             margin-bottom: 0.6rem;
+            background: #0f1e2f;
+            padding: 0.6rem;
+            border-radius: 10px;
+            border: 1px solid #1d3142;
+            max-height: 100px;
+            overflow-y: auto;
         }
 
         .pending-actions {
             display: flex;
             gap: 0.6rem;
-        }
-
-        .btn-sm {
-            padding: 0.4rem 1rem;
-            font-size: 0.8rem;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: 0.15s;
-        }
-
-        .btn-approve {
-            background: #1b6e4b;
-        }
-
-        .btn-approve:hover {
-            background: #248f61;
-        }
-
-        .btn-reject {
-            background: #6e1b1b;
-        }
-
-        .btn-reject:hover {
-            background: #8f2424;
+            flex-wrap: wrap;
         }
 
         .user-table {
@@ -719,6 +774,7 @@
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
+            flex-wrap: wrap;
         }
 
         .admin-tab {
@@ -747,7 +803,6 @@
             display: block;
         }
 
-        /* notification toast */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -765,7 +820,7 @@
             gap: 10px;
             transform: translateY(120%);
             transition: transform 0.3s ease;
-            max-width: 350px;
+            max-width: 400px;
         }
 
         .toast.show {
@@ -777,7 +832,143 @@
             font-size: 1.2rem;
         }
 
-        /* responsive */
+        .game-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+            gap: 0.5rem;
+            align-items: center;
+            background: #0b1a28;
+            padding: 0.8rem;
+            border-radius: 14px;
+            margin-bottom: 0.6rem;
+            border: 1px solid #1f3e58;
+            font-size: 0.85rem;
+        }
+
+        .game-row input {
+            background: #0f1e2f;
+            border: 1px solid #2c4b6a;
+            padding: 0.5rem;
+            border-radius: 10px;
+            color: white;
+            font-size: 0.85rem;
+            width: 100%;
+            outline: none;
+        }
+
+        .game-row input:focus {
+            border-color: #f9c74f;
+        }
+
+        .game-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr auto;
+            gap: 0.5rem;
+            padding: 0.5rem 0.8rem;
+            color: #8bb3d4;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .total-odds-display {
+            background: #1f4d6e;
+            padding: 0.8rem 1.2rem;
+            border-radius: 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: #f9c74f;
+            font-size: 1.1rem;
+            margin-top: 0.8rem;
+            border: 1px solid #4a8bb0;
+        }
+
+        .result-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .result-right {
+            background: #1b6e4b;
+            color: #b3ffcf;
+        }
+
+        .result-wrong {
+            background: #6e1b1b;
+            color: #ffb3b3;
+        }
+
+        .result-pending {
+            background: #6e4b1b;
+            color: #ffe0b3;
+        }
+
+        .result-unmarked {
+            background: #1f3b52;
+            color: #8bb3d4;
+        }
+
+        .odds-locked {
+            color: #f96b6b;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .balance-display {
+            background: #0b1a28;
+            border-radius: 20px;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border: 1px solid #2e5270;
+        }
+
+        .balance-display .label {
+            color: #96b9db;
+            font-size: 0.9rem;
+        }
+
+        .balance-display .amount {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #f9c74f;
+        }
+
+        .record-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .record-stat {
+            background: #0b1a28;
+            padding: 0.8rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #1f3e58;
+        }
+
+        .record-stat .number {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #f9c74f;
+        }
+
+        .record-stat .label {
+            font-size: 0.75rem;
+            color: #8bb3d4;
+            margin-top: 0.2rem;
+        }
+
         @media (max-width: 900px) {
             .dashboard {
                 grid-template-columns: 1fr;
@@ -794,6 +985,13 @@
             }
             .admin-grid {
                 grid-template-columns: 1fr;
+            }
+            .game-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.4rem;
+            }
+            .game-header {
+                display: none;
             }
         }
 
@@ -812,7 +1010,6 @@
 </head>
 <body>
     <div class="app-wrapper">
-        <!-- HEADER -->
         <header class="header">
             <div class="logo">
                 <h1><i class="fas fa-futbol"></i> Benafans</h1>
@@ -820,6 +1017,9 @@
             <div class="header-right">
                 <div class="free-badge" id="freeBadge">
                     <i class="fas fa-gift"></i> Free week for new users!
+                </div>
+                <div class="balance-badge" id="balanceBadge" style="display: none;">
+                    <i class="fas fa-wallet"></i> KES <span id="balanceAmount">0</span>
                 </div>
                 <div class="user-badge" id="userBadge" style="display: none;">
                     <i class="fas fa-user-circle"></i>
@@ -835,18 +1035,22 @@
         <!-- USER DASHBOARD -->
         <div id="userDashboard">
             <div class="dashboard">
-                <!-- LEFT COLUMN: PAYMENT / ACCESS -->
                 <div class="card">
                     <div class="card-title">
                         <i class="fas fa-lock-open"></i> Unlock predictions
                     </div>
 
-                    <div class="pay-options">
-                        <div class="pay-tier">
+                    <div class="balance-display">
+                        <span class="label"><i class="fas fa-wallet"></i> Your balance</span>
+                        <span class="amount">KES <span id="userBalanceDisplay">0</span></span>
+                    </div>
+
+                    <div class="pay-options" id="payOptions">
+                        <div class="pay-tier" data-odds="5" data-price="19">
                             <span><i class="fas fa-chart-line" style="color: #f9c74f;"></i> 5 odds</span>
                             <span class="price">KES 19</span>
                         </div>
-                        <div class="pay-tier">
+                        <div class="pay-tier" data-odds="10" data-price="29">
                             <span><i class="fas fa-chart-line" style="color: #f9c74f;"></i> 10 odds</span>
                             <span class="price">KES 29</span>
                         </div>
@@ -858,7 +1062,7 @@
                     </div>
 
                     <div class="mpesa-input-area">
-                        <input type="text" id="mpesaMessage" placeholder="Paste M-Pesa message here...">
+                        <input type="text" id="mpesaMessage" placeholder="Paste full M-Pesa message here...">
                         <button class="btn btn-primary" id="submitMpesaBtn">
                             <i class="fas fa-check-circle"></i> Submit for approval
                         </button>
@@ -866,17 +1070,15 @@
                     <div class="status-message" id="paymentStatus"></div>
 
                     <div class="admin-note">
-                        <i class="fas fa-user-shield"></i> Admin will approve your message. Then you'll access predictions.
+                        <i class="fas fa-user-shield"></i> Admin will approve your message. Then you can buy predictions.
                     </div>
-                    <div style="margin-top: 1rem; font-size: 0.9rem; background: #0b1a28; border-radius: 16px; padding: 0.8rem;">
-                        <i class="fas fa-gift" style="color: #2ecc71;"></i> <strong>Free week</strong> for every new user – 
-                        <span style="color: #b3e6b3;">no payment needed yet</span>
+
+                    <div id="unavailableNotice" style="display: none; margin-top: 1rem; background: #6e1b1b; border-radius: 16px; padding: 0.8rem; border: 1px solid #b04a4a;">
+                        <i class="fas fa-clock" style="color: #f96b6b;"></i> <strong style="color: #ffb3b3;">Odds unavailable</strong> — games have started.
                     </div>
                 </div>
 
-                <!-- RIGHT COLUMN: EVERYTHING ELSE -->
                 <div class="right-stack">
-                    <!-- LEAGUE INVITES + REMINDERS -->
                     <div class="card">
                         <div class="card-title"><i class="fas fa-envelope-open-text"></i> League invites & reminders</div>
                         <div class="invite-row">
@@ -884,40 +1086,61 @@
                             <div class="invite-badge"><i class="fas fa-users"></i> Invite code: BEN26</div>
                             <div class="invite-badge"><i class="fas fa-bell"></i> Reminder: Matchday 4 starts Fri</div>
                         </div>
-                        <div class="reminder-box mt-2">
+                        <div class="reminder-box mt-2" id="reminderBox">
                             <i class="fas fa-clock"></i>
                             <span>⏰ Deadline for predictions: <strong>2 hours before kickoff</strong>. Free trial active.</span>
                         </div>
                     </div>
 
-                    <!-- LIVE STANDINGS -->
                     <div class="card">
                         <div class="card-title"><i class="fas fa-table"></i> Live standings (Premier League 2026)</div>
                         <table class="standings-table">
                             <thead>
                                 <tr><th>Pos</th><th>Team</th><th>Pts</th></tr>
                             </thead>
-                            <tbody id="standingsBody">
-                                <!-- filled by js -->
-                            </tbody>
+                            <tbody id="standingsBody"></tbody>
                         </table>
                         <div style="text-align: right; margin-top: 8px; font-size: 0.8rem; color: #7c9eb9;" id="standingsUpdate">Updated just now</div>
                     </div>
 
-                    <!-- MATCH PICKS & LEADERS BOARD -->
                     <div class="card">
-                        <div class="card-title"><i class="fas fa-futbol"></i> Free match picks (week 1)</div>
-                        <div class="picks-grid" id="picksGrid">
-                            <!-- filled by js -->
+                        <div class="card-title"><i class="fas fa-futbol"></i> Match predictions</div>
+                        <div id="picksLockedMessage" style="display: none; background: #6e1b1b; border-radius: 14px; padding: 0.8rem; margin-bottom: 1rem; border: 1px solid #b04a4a; text-align: center;">
+                            <i class="fas fa-lock" style="color: #f96b6b;"></i> <strong style="color: #ffb3b3;">Odds unavailable</strong> — games have started
                         </div>
-                        <div style="font-size: 0.85rem; color: #8bb3d4; margin-top: 12px;" id="picksInfo"><i class="fas fa-info-circle"></i> Full list after approval / free trial</div>
+                        <div class="picks-grid" id="picksGrid"></div>
+                        <div style="font-size: 0.85rem; color: #8bb3d4; margin-top: 12px;" id="picksInfo"><i class="fas fa-info-circle"></i> Sign in and get approved to buy predictions</div>
+                        <div id="buySection" style="display: none; margin-top: 1rem;">
+                            <button class="btn btn-success" id="buyPredictionsBtn">
+                                <i class="fas fa-shopping-cart"></i> Buy predictions (KES <span id="buyPrice">19</span>)
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- LEADERS BOARD -->
                     <div class="card">
                         <div class="card-title"><i class="fas fa-crown"></i> Leaders board (top predictors)</div>
-                        <div class="leaders-list" id="leadersList">
-                            <!-- dynamic -->
+                        <div class="leaders-list" id="leadersList"></div>
+                    </div>
+
+                    <div class="card" id="userRecordCard" style="display: none;">
+                        <div class="card-title"><i class="fas fa-chart-bar"></i> Your prediction record</div>
+                        <div class="record-summary" id="recordSummary">
+                            <div class="record-stat">
+                                <div class="number" id="recTotal">0</div>
+                                <div class="label">Total</div>
+                            </div>
+                            <div class="record-stat">
+                                <div class="number" id="recRight" style="color: #2ecc71;">0</div>
+                                <div class="label">Right</div>
+                            </div>
+                            <div class="record-stat">
+                                <div class="number" id="recWrong" style="color: #f96b6b;">0</div>
+                                <div class="label">Wrong</div>
+                            </div>
+                            <div class="record-stat">
+                                <div class="number" id="recPending" style="color: #f9c74f;">0</div>
+                                <div class="label">Pending</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -927,16 +1150,55 @@
         <!-- ADMIN PANEL -->
         <div class="admin-panel" id="adminPanel">
             <div class="admin-tabs">
-                <div class="admin-tab active" data-tab="pending">Pending Approvals</div>
+                <div class="admin-tab active" data-tab="games">Manage Games</div>
+                <div class="admin-tab" data-tab="pending">Pending Approvals</div>
                 <div class="admin-tab" data-tab="users">All Users</div>
+                <div class="admin-tab" data-tab="results">Mark Results</div>
             </div>
 
-            <div class="admin-tab-content active" id="tab-pending">
+            <div class="admin-tab-content active" id="tab-games">
+                <div class="admin-card">
+                    <h3><i class="fas fa-plus-circle"></i> Add new game</h3>
+                    <div class="game-row" style="margin-bottom: 1rem;">
+                        <input type="text" id="newGameMatch" placeholder="Match (e.g. Arsenal vs Chelsea)">
+                        <input type="text" id="newGamePrediction" placeholder="Prediction">
+                        <input type="text" id="newGameOdds" placeholder="Odds">
+                        <input type="datetime-local" id="newGameTime" style="font-size: 0.75rem;">
+                        <input type="text" id="newGameCategory" placeholder="Category (5/10)">
+                        <button class="btn btn-success" id="addGameBtn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                            <i class="fas fa-plus"></i> Add
+                        </button>
+                    </div>
+
+                    <h3><i class="fas fa-list"></i> Current games</h3>
+                    <div id="gamesList"></div>
+
+                    <div class="total-odds-display">
+                        <i class="fas fa-calculator"></i> Total 5-odds: <span id="total5Odds">1.00</span>
+                    </div>
+                    <div class="total-odds-display" style="margin-left: 0.5rem;">
+                        <i class="fas fa-calculator"></i> Total 10-odds: <span id="total10Odds">1.00</span>
+                    </div>
+
+                    <div style="margin-top: 1rem; display: flex; gap: 0.8rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="publishBtn">
+                            <i class="fas fa-paper-plane"></i> Publish predictions
+                        </button>
+                        <button class="btn btn-warning" id="update5OddsBtn">
+                            <i class="fas fa-sync"></i> Update 5-odds
+                        </button>
+                        <button class="btn btn-warning" id="update10OddsBtn">
+                            <i class="fas fa-sync"></i> Update 10-odds
+                        </button>
+                    </div>
+                    <div class="status-message" id="adminGameStatus"></div>
+                </div>
+            </div>
+
+            <div class="admin-tab-content" id="tab-pending">
                 <div class="admin-card">
                     <h3><i class="fas fa-clock"></i> Pending M-Pesa submissions</h3>
-                    <div class="pending-list" id="pendingList">
-                        <!-- filled by js -->
-                    </div>
+                    <div class="pending-list" id="pendingList"></div>
                 </div>
             </div>
 
@@ -950,14 +1212,20 @@
                                     <th>Username</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Balance</th>
                                     <th>Free Trial</th>
                                 </tr>
                             </thead>
-                            <tbody id="userTableBody">
-                                <!-- filled by js -->
-                            </tbody>
+                            <tbody id="userTableBody"></tbody>
                         </table>
                     </div>
+                </div>
+            </div>
+
+            <div class="admin-tab-content" id="tab-results">
+                <div class="admin-card">
+                    <h3><i class="fas fa-check-double"></i> Mark results</h3>
+                    <div id="resultsList"></div>
                 </div>
             </div>
         </div>
@@ -969,7 +1237,6 @@
             <button class="close-btn" id="closeModal">&times;</button>
             <h2><i class="fas fa-user-circle"></i> <span id="modalTitle">Sign In</span></h2>
 
-            <!-- Sign In Form -->
             <div id="signInForm">
                 <div class="form-group">
                     <label>Username</label>
@@ -988,7 +1255,6 @@
                 </div>
             </div>
 
-            <!-- Sign Up Form -->
             <div id="signUpForm" style="display: none;">
                 <div class="form-group">
                     <label>Username</label>
@@ -1013,7 +1279,6 @@
         </div>
     </div>
 
-    <!-- TOAST -->
     <div class="toast" id="toast">
         <i class="fas fa-check-circle"></i>
         <span id="toastMessage">Action completed</span>
@@ -1022,51 +1287,57 @@
     <script>
         (function() {
             // ============================================================
-            //  BENAFANS - FULL INTERACTIVE APP
+            //  BENAFANS - FULL INTERACTIVE APP (v2)
             // ============================================================
 
-            // ---------- STATE ----------
             const state = {
-                currentUser: null,          // { username, email, isAdmin, isApproved, freeTrial }
-                users: [],                  // array of user objects
-                pendingApprovals: [],       // array of { id, username, message, timestamp }
-                predictions: [],            // array of match picks
-                standings: [],
-                leaders: [],
-                adminTab: 'pending'
+                currentUser: null,
+                users: [],
+                pendingApprovals: [],
+                games: [],
+                published: false,
+                published5: false,
+                published10: false,
+                gameStartTime: null,
+                userRecords: {} // { username: { total, right, wrong, pending, predictions: [] } }
             };
 
-            // ---------- STORAGE (localStorage) ----------
+            // ---------- STORAGE ----------
             function saveState() {
                 try {
-                    localStorage.setItem('benafans_state', JSON.stringify({
+                    localStorage.setItem('benafans_v2', JSON.stringify({
                         users: state.users,
                         pendingApprovals: state.pendingApprovals,
-                        predictions: state.predictions,
-                        standings: state.standings,
-                        leaders: state.leaders
+                        games: state.games,
+                        published: state.published,
+                        published5: state.published5,
+                        published10: state.published10,
+                        gameStartTime: state.gameStartTime,
+                        userRecords: state.userRecords
                     }));
                 } catch (e) { /* ignore */ }
             }
 
             function loadState() {
                 try {
-                    const saved = localStorage.getItem('benafans_state');
+                    const saved = localStorage.getItem('benafans_v2');
                     if (saved) {
                         const data = JSON.parse(saved);
                         state.users = data.users || [];
                         state.pendingApprovals = data.pendingApprovals || [];
-                        state.predictions = data.predictions || [];
-                        state.standings = data.standings || [];
-                        state.leaders = data.leaders || [];
+                        state.games = data.games || [];
+                        state.published = data.published || false;
+                        state.published5 = data.published5 || false;
+                        state.published10 = data.published10 || false;
+                        state.gameStartTime = data.gameStartTime || null;
+                        state.userRecords = data.userRecords || {};
                     }
                 } catch (e) { /* ignore */ }
             }
 
-            // ---------- INITIAL SEED DATA (if empty) ----------
+            // ---------- SEED DATA ----------
             function seedData() {
                 if (state.users.length === 0) {
-                    // admin user
                     state.users.push({
                         username: 'admin',
                         email: 'admin@benafans.com',
@@ -1074,9 +1345,9 @@
                         isAdmin: true,
                         isApproved: true,
                         freeTrial: false,
+                        balance: 0,
                         joined: new Date().toISOString()
                     });
-                    // demo user
                     state.users.push({
                         username: 'demo',
                         email: 'demo@benafans.com',
@@ -1084,9 +1355,9 @@
                         isAdmin: false,
                         isApproved: true,
                         freeTrial: true,
+                        balance: 50,
                         joined: new Date().toISOString()
                     });
-                    // another user pending
                     state.users.push({
                         username: 'kevin',
                         email: 'kevin@benafans.com',
@@ -1094,62 +1365,77 @@
                         isAdmin: false,
                         isApproved: false,
                         freeTrial: false,
+                        balance: 0,
                         joined: new Date().toISOString()
                     });
-                    // add a pending approval for kevin
                     state.pendingApprovals.push({
                         id: 'p1',
                         username: 'kevin',
-                        message: 'QGH7X2MPESA Confirmed. Ksh19 sent to 8806128 on 12/3/26',
-                        timestamp: new Date().toISOString()
+                        message: 'QGH7X2MPESA Confirmed. Ksh19 sent to 8806128 on 12/3/26 at 10:45 AM. Transaction ID: QGH7X2MPESA. New balance: 0.00',
+                        timestamp: new Date().toISOString(),
+                        amount: 19
                     });
                 }
 
-                // seed predictions if empty
-                if (state.predictions.length === 0) {
-                    state.predictions = [
-                        { match: 'Arsenal vs Chelsea', odds: '1.85' },
-                        { match: 'Man City vs Liverpool', odds: '2.10' },
-                        { match: 'Spurs vs Man United', odds: '2.45' },
-                        { match: 'Newcastle vs Aston Villa', odds: '2.00' },
-                        { match: 'Brighton vs West Ham', odds: '1.95' }
+                if (state.games.length === 0) {
+                    state.games = [
+                        { id: 'g1', match: 'Arsenal vs Chelsea', prediction: 'Arsenal Win', odds: 1.85, time: '2026-10-15T15:00', category: '5', result: 'unmarked' },
+                        { id: 'g2', match: 'Man City vs Liverpool', prediction: 'Over 2.5', odds: 2.10, time: '2026-10-15T17:30', category: '5', result: 'unmarked' },
+                        { id: 'g3', match: 'Spurs vs Man United', prediction: 'Both Score', odds: 2.45, time: '2026-10-16T12:00', category: '10', result: 'unmarked' },
+                        { id: 'g4', match: 'Newcastle vs Aston Villa', prediction: 'Newcastle Win', odds: 2.00, time: '2026-10-16T14:00', category: '10', result: 'unmarked' },
+                        { id: 'g5', match: 'Brighton vs West Ham', prediction: 'Over 1.5', odds: 1.95, time: '2026-10-17T16:30', category: '5', result: 'unmarked' }
                     ];
                 }
 
-                // seed standings if empty
-                if (state.standings.length === 0) {
-                    state.standings = [
-                        { pos: 1, team: 'Man City', pts: 18 },
-                        { pos: 2, team: 'Arsenal', pts: 16 },
-                        { pos: 3, team: 'Liverpool', pts: 14 },
-                        { pos: 4, team: 'Aston Villa', pts: 13 },
-                        { pos: 5, team: 'Spurs', pts: 11 },
-                        { pos: 6, team: 'Chelsea', pts: 10 },
-                        { pos: 7, team: 'Newcastle', pts: 9 },
-                        { pos: 8, team: 'Man United', pts: 7 }
-                    ];
-                }
-
-                // seed leaders if empty
-                if (state.leaders.length === 0) {
-                    state.leaders = [
-                        { rank: 1, name: 'Kevin M.', points: 124 },
-                        { rank: 2, name: 'Sharon W.', points: 119 },
-                        { rank: 3, name: 'Brian O.', points: 115 },
-                        { rank: 4, name: 'Faith K.', points: 102 },
-                        { rank: 5, name: 'Dennis M.', points: 98 }
-                    ];
+                if (Object.keys(state.userRecords).length === 0) {
+                    state.userRecords = {
+                        'demo': { total: 3, right: 2, wrong: 1, pending: 0, predictions: ['g1', 'g2', 'g5'] }
+                    };
                 }
 
                 saveState();
             }
 
-            // ---------- RENDER FUNCTIONS ----------
+            // ---------- HELPERS ----------
+            function findUser(username) {
+                return state.users.find(u => u.username === username);
+            }
 
+            function getCurrentUserObj() {
+                if (!state.currentUser) return null;
+                return findUser(state.currentUser.username);
+            }
+
+            function isGameStarted() {
+                if (!state.gameStartTime) return false;
+                return new Date() >= new Date(state.gameStartTime);
+            }
+
+            function getTotalOdds(category) {
+                const filtered = state.games.filter(g => g.category === category);
+                if (filtered.length === 0) return 0;
+                return filtered.reduce((acc, g) => acc * parseFloat(g.odds || 0), 1).toFixed(2);
+            }
+
+            function getGamesByCategory(cat) {
+                return state.games.filter(g => g.category === cat);
+            }
+
+            // ---------- RENDER FUNCTIONS ----------
             function renderStandings() {
                 const tbody = document.getElementById('standingsBody');
                 if (!tbody) return;
-                tbody.innerHTML = state.standings.map(item => `
+                const standings = [
+                    { pos: 1, team: 'Man City', pts: 18 },
+                    { pos: 2, team: 'Arsenal', pts: 16 },
+                    { pos: 3, team: 'Liverpool', pts: 14 },
+                    { pos: 4, team: 'Aston Villa', pts: 13 },
+                    { pos: 5, team: 'Spurs', pts: 11 },
+                    { pos: 6, team: 'Chelsea', pts: 10 },
+                    { pos: 7, team: 'Newcastle', pts: 9 },
+                    { pos: 8, team: 'Man United', pts: 7 }
+                ];
+                tbody.innerHTML = standings.map(item => `
                     <tr>
                         <td class="pos">${item.pos}</td>
                         <td class="team">${item.team}</td>
@@ -1161,7 +1447,14 @@
             function renderLeaders() {
                 const container = document.getElementById('leadersList');
                 if (!container) return;
-                container.innerHTML = state.leaders.map(entry => `
+                const leaders = [
+                    { rank: 1, name: 'Kevin M.', points: 124 },
+                    { rank: 2, name: 'Sharon W.', points: 119 },
+                    { rank: 3, name: 'Brian O.', points: 115 },
+                    { rank: 4, name: 'Faith K.', points: 102 },
+                    { rank: 5, name: 'Dennis M.', points: 98 }
+                ];
+                container.innerHTML = leaders.map(entry => `
                     <div class="leader-entry">
                         <span class="rank">${entry.rank}</span>
                         <span class="name">${entry.name}</span>
@@ -1172,28 +1465,85 @@
 
             function renderPicks() {
                 const grid = document.getElementById('picksGrid');
+                const info = document.getElementById('picksInfo');
+                const buySection = document.getElementById('buySection');
+                const lockedMsg = document.getElementById('picksLockedMessage');
                 if (!grid) return;
-                // Show first 3 picks as free preview
-                const freePicks = state.predictions.slice(0, 3);
-                grid.innerHTML = freePicks.map(p => `
+
+                const started = isGameStarted();
+                const user = getCurrentUserObj();
+
+                // Filter games based on published status
+                let visibleGames = [];
+                if (state.published) {
+                    visibleGames = state.games;
+                } else if (state.published5) {
+                    visibleGames = state.games.filter(g => g.category === '5');
+                } else if (state.published10) {
+                    visibleGames = state.games.filter(g => g.category === '10');
+                } else {
+                    // Show preview of first 2 games
+                    visibleGames = state.games.slice(0, 2);
+                }
+
+                // Check if user has bought a specific category
+                const userHas5 = user && user.purchased5;
+                const userHas10 = user && user.purchased10;
+                const userHasAll = user && user.isApproved && (userHas5 || userHas10);
+
+                if (started) {
+                    lockedMsg.style.display = 'block';
+                    grid.innerHTML = '';
+                    buySection.style.display = 'none';
+                    info.innerHTML = '<i class="fas fa-lock"></i> Odds unavailable — games have started';
+                    return;
+                } else {
+                    lockedMsg.style.display = 'none';
+                }
+
+                // Determine which games to show
+                let displayGames = [];
+                if (userHasAll && state.published) {
+                    displayGames = state.games;
+                } else if (userHas5 && state.published5) {
+                    displayGames = state.games.filter(g => g.category === '5');
+                } else if (userHas10 && state.published10) {
+                    displayGames = state.games.filter(g => g.category === '10');
+                } else {
+                    displayGames = visibleGames.slice(0, 3);
+                }
+
+                grid.innerHTML = displayGames.map(g => `
                     <div class="pick-item">
-                        <span class="match">${p.match}</span>
-                        <span class="odds-badge">${p.odds}</span>
+                        <span class="match">${g.match}<br><small style="color: #8bb3d4;">${g.prediction}</small></span>
+                        <span class="odds-badge">${g.odds}</span>
                     </div>
                 `).join('');
 
-                // If user is approved, show all picks
-                if (state.currentUser && state.currentUser.isApproved) {
-                    const allPicks = state.predictions;
-                    grid.innerHTML = allPicks.map(p => `
-                        <div class="pick-item">
-                            <span class="match">${p.match}</span>
-                            <span class="odds-badge">${p.odds}</span>
-                        </div>
-                    `).join('');
-                    document.getElementById('picksInfo').innerHTML = '<i class="fas fa-check-circle" style="color: #2ecc71;"></i> You have full access to all predictions!';
+                // Show total odds
+                if (state.published5) {
+                    const t5 = getTotalOdds('5');
+                    info.innerHTML = `<i class="fas fa-calculator"></i> Total 5-odds: <strong>${t5}</strong>`;
+                }
+                if (state.published10) {
+                    const t10 = getTotalOdds('10');
+                    info.innerHTML += ` | <i class="fas fa-calculator"></i> Total 10-odds: <strong>${t10}</strong>`;
+                }
+
+                // Buy button logic
+                if (state.currentUser && !state.currentUser.isAdmin && user && user.isApproved) {
+                    buySection.style.display = 'block';
+                    const selectedOdds = document.querySelector('.pay-tier.selected');
+                    if (selectedOdds) {
+                        const price = selectedOdds.dataset.price;
+                        document.getElementById('buyPrice').textContent = price;
+                    }
                 } else {
-                    document.getElementById('picksInfo').innerHTML = '<i class="fas fa-info-circle"></i> Full list after approval / free trial';
+                    buySection.style.display = 'none';
+                }
+
+                if (!state.published && !state.published5 && !state.published10) {
+                    info.innerHTML = '<i class="fas fa-info-circle"></i> Predictions not yet published by admin';
                 }
             }
 
@@ -1205,6 +1555,7 @@
                         <td>${u.username} ${u.isAdmin ? '👑' : ''}</td>
                         <td>${u.email}</td>
                         <td><span class="badge ${u.isApproved ? 'badge-approved' : 'badge-pending'}">${u.isApproved ? 'Approved' : 'Pending'}</span></td>
+                        <td>KES ${u.balance || 0}</td>
                         <td><span class="badge ${u.freeTrial ? 'badge-free' : ''}">${u.freeTrial ? 'Active' : '—'}</span></td>
                     </tr>
                 `).join('');
@@ -1236,6 +1587,162 @@
                 `).join('');
             }
 
+            function renderGamesList() {
+                const container = document.getElementById('gamesList');
+                if (!container) return;
+                container.innerHTML = state.games.map(g => `
+                    <div class="game-row">
+                        <input type="text" value="${g.match}" onchange="window.updateGame('${g.id}', 'match', this.value)" placeholder="Match">
+                        <input type="text" value="${g.prediction}" onchange="window.updateGame('${g.id}', 'prediction', this.value)" placeholder="Prediction">
+                        <input type="text" value="${g.odds}" onchange="window.updateGame('${g.id}', 'odds', this.value)" placeholder="Odds">
+                        <input type="datetime-local" value="${g.time}" onchange="window.updateGame('${g.id}', 'time', this.value)">
+                        <select onchange="window.updateGame('${g.id}', 'category', this.value)" style="background: #0f1e2f; border: 1px solid #2c4b6a; padding: 0.5rem; border-radius: 10px; color: white; font-size: 0.85rem;">
+                            <option value="5" ${g.category === '5' ? 'selected' : ''}>5 odds</option>
+                            <option value="10" ${g.category === '10' ? 'selected' : ''}>10 odds</option>
+                        </select>
+                        <button class="btn-sm btn-reject" onclick="window.deleteGame('${g.id}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+
+                // Update totals
+                document.getElementById('total5Odds').textContent = getTotalOdds('5');
+                document.getElementById('total10Odds').textContent = getTotalOdds('10');
+            }
+
+            function renderResultsList() {
+                const container = document.getElementById('resultsList');
+                if (!container) return;
+                if (state.games.length === 0) {
+                    container.innerHTML = '<div style="color: #6d8da8; padding: 1rem;">No games added yet</div>';
+                    return;
+                }
+                container.innerHTML = state.games.map(g => {
+                    const badgeClass = g.result === 'right' ? 'result-right' : 
+                                      g.result === 'wrong' ? 'result-wrong' : 
+                                      g.result === 'pending' ? 'result-pending' : 'result-unmarked';
+                    const badgeText = g.result === 'right' ? 'Right' : 
+                                     g.result === 'wrong' ? 'Wrong' : 
+                                     g.result === 'pending' ? 'Pending' : 'Unmarked';
+                    return `
+                        <div class="game-row" style="grid-template-columns: 2fr 1fr 1fr 1fr auto;">
+                            <span style="font-weight: 600;">${g.match} <small style="color: #8bb3d4;">(${g.prediction})</small></span>
+                            <span style="color: #f9c74f;">${g.odds}</span>
+                            <span><span class="result-badge ${badgeClass}">${badgeText}</span></span>
+                            <span style="font-size: 0.75rem; color: #6d8da8;">${new Date(g.time).toLocaleString()}</span>
+                            <div style="display: flex; gap: 0.3rem;">
+                                <button class="btn-sm btn-approve" onclick="window.markResult('${g.id}', 'right')" title="Right">
+                                    <i class="fas fa-check"></i>
+                                </button>
+                                <button class="btn-sm btn-reject" onclick="window.markResult('${g.id}', 'wrong')" title="Wrong">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <button class="btn-sm btn-warning" onclick="window.markResult('${g.id}', 'pending')" title="Pending">
+                                    <i class="fas fa-clock"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            function renderUserRecords() {
+                const card = document.getElementById('userRecordCard');
+                if (!state.currentUser || state.currentUser.isAdmin) {
+                    card.style.display = 'none';
+                    return;
+                }
+                const user = getCurrentUserObj();
+                if (!user || !user.isApproved) {
+                    card.style.display = 'none';
+                    return;
+                }
+                const record = state.userRecords[state.currentUser.username];
+                if (!record) {
+                    card.style.display = 'none';
+                    return;
+                }
+                card.style.display = 'block';
+                document.getElementById('recTotal').textContent = record.total;
+                document.getElementById('recRight').textContent = record.right;
+                document.getElementById('recWrong').textContent = record.wrong;
+                document.getElementById('recPending').textContent = record.pending;
+            }
+
+            // ---------- ADMIN ACTIONS ----------
+            window.updateGame = function(id, field, value) {
+                const game = state.games.find(g => g.id === id);
+                if (game) {
+                    if (field === 'odds') {
+                        game.odds = parseFloat(value) || 0;
+                    } else {
+                        game[field] = value;
+                    }
+                    saveState();
+                    renderGamesList();
+                    renderResultsList();
+                }
+            };
+
+            window.deleteGame = function(id) {
+                if (!confirm('Delete this game?')) return;
+                state.games = state.games.filter(g => g.id !== id);
+                saveState();
+                renderGamesList();
+                renderResultsList();
+            };
+
+            window.markResult = function(id, result) {
+                const game = state.games.find(g => g.id === id);
+                if (game) {
+                    game.result = result;
+                    saveState();
+                    renderResultsList();
+                    recalculateRecords();
+                    showToast(`Marked as ${result}`);
+                }
+            };
+
+            window.approvePending = function(id) {
+                const pending = state.pendingApprovals.find(p => p.id === id);
+                if (!pending) return;
+                const user = findUser(pending.username);
+                if (user) {
+                    user.isApproved = true;
+                    user.balance = (user.balance || 0) + (pending.amount || 0);
+                }
+                state.pendingApprovals = state.pendingApprovals.filter(p => p.id !== id);
+                saveState();
+                renderPendingApprovals();
+                renderUserTable();
+                updateUIForUser();
+                showToast(`Approved ${pending.username}'s payment`);
+            };
+
+            window.rejectPending = function(id) {
+                const pending = state.pendingApprovals.find(p => p.id === id);
+                if (!pending) return;
+                state.pendingApprovals = state.pendingApprovals.filter(p => p.id !== id);
+                saveState();
+                renderPendingApprovals();
+                showToast(`Rejected ${pending.username}'s submission`, 'error');
+            };
+
+            function recalculateRecords() {
+                // Simple recalculation based on games marked
+                state.users.forEach(u => {
+                    if (!u.isAdmin) {
+                        const record = state.userRecords[u.username] || { total: 0, right: 0, wrong: 0, pending: 0, predictions: [] };
+                        // This is a simplified version. In reality, we'd track which user bought which game.
+                        // For now, we just use the record as is.
+                        state.userRecords[u.username] = record;
+                    }
+                });
+                saveState();
+                renderUserRecords();
+            }
+
             // ---------- AUTH ----------
             function openModal(mode) {
                 const modal = document.getElementById('authModal');
@@ -1253,7 +1760,6 @@
                     signInForm.style.display = 'none';
                     signUpForm.style.display = 'block';
                 }
-                // Clear errors
                 document.getElementById('signInError').textContent = '';
                 document.getElementById('signUpError').textContent = '';
             }
@@ -1263,34 +1769,35 @@
             }
 
             function signIn(username, password) {
-                const user = state.users.find(u => u.username === username && u.password === password);
-                if (!user) {
+                const user = findUser(username);
+                if (!user || user.password !== password) {
                     return { success: false, error: 'Invalid username or password' };
                 }
-                state.currentUser = { ...user };
+                state.currentUser = { username: user.username, isAdmin: user.isAdmin };
                 return { success: true, user };
             }
 
             function signUp(username, email, password) {
-                // Check if user exists
-                if (state.users.find(u => u.username === username)) {
+                if (findUser(username)) {
                     return { success: false, error: 'Username already exists' };
                 }
                 if (state.users.find(u => u.email === email)) {
                     return { success: false, error: 'Email already registered' };
                 }
-
                 const newUser = {
                     username,
                     email,
                     password,
                     isAdmin: false,
-                    isApproved: true,       // Free trial auto-approved for first week
+                    isApproved: true,
                     freeTrial: true,
+                    balance: 0,
+                    purchased5: false,
+                    purchased10: false,
                     joined: new Date().toISOString()
                 };
                 state.users.push(newUser);
-                state.currentUser = { ...newUser };
+                state.currentUser = { username: newUser.username, isAdmin: false };
                 saveState();
                 return { success: true, user: newUser };
             }
@@ -1306,27 +1813,41 @@
                 const userBadge = document.getElementById('userBadge');
                 const signInBtn = document.getElementById('signInBtn');
                 const userNameDisplay = document.getElementById('userNameDisplay');
+                const balanceBadge = document.getElementById('balanceBadge');
+                const balanceAmount = document.getElementById('balanceAmount');
                 const adminPanel = document.getElementById('adminPanel');
                 const userDashboard = document.getElementById('userDashboard');
+                const userBalanceDisplay = document.getElementById('userBalanceDisplay');
 
                 if (state.currentUser) {
+                    const user = getCurrentUserObj();
                     userBadge.style.display = 'flex';
                     signInBtn.style.display = 'none';
                     userNameDisplay.textContent = state.currentUser.username;
+                    balanceBadge.style.display = 'flex';
+                    balanceAmount.textContent = user ? (user.balance || 0) : 0;
+
+                    if (userBalanceDisplay) {
+                        userBalanceDisplay.textContent = user ? (user.balance || 0) : 0;
+                    }
 
                     if (state.currentUser.isAdmin) {
                         adminPanel.classList.add('active');
                         userDashboard.style.display = 'none';
                         renderPendingApprovals();
                         renderUserTable();
+                        renderGamesList();
+                        renderResultsList();
                     } else {
                         adminPanel.classList.remove('active');
                         userDashboard.style.display = 'block';
                         renderPicks();
+                        renderUserRecords();
                     }
                 } else {
                     userBadge.style.display = 'none';
                     signInBtn.style.display = 'flex';
+                    balanceBadge.style.display = 'none';
                     adminPanel.classList.remove('active');
                     userDashboard.style.display = 'block';
                     renderPicks();
@@ -1350,75 +1871,34 @@
                 }, 3000);
             }
 
-            // ---------- ADMIN ACTIONS (global) ----------
-            window.approvePending = function(id) {
-                const pending = state.pendingApprovals.find(p => p.id === id);
-                if (!pending) return;
-
-                // Find user and approve
-                const user = state.users.find(u => u.username === pending.username);
-                if (user) {
-                    user.isApproved = true;
-                }
-
-                // Remove from pending
-                state.pendingApprovals = state.pendingApprovals.filter(p => p.id !== id);
-                saveState();
-
-                renderPendingApprovals();
-                renderUserTable();
-                showToast(`Approved ${pending.username}'s payment`);
-            };
-
-            window.rejectPending = function(id) {
-                const pending = state.pendingApprovals.find(p => p.id === id);
-                if (!pending) return;
-
-                state.pendingApprovals = state.pendingApprovals.filter(p => p.id !== id);
-                saveState();
-
-                renderPendingApprovals();
-                showToast(`Rejected ${pending.username}'s submission`, 'error');
-            };
-
             // ---------- EVENT LISTENERS ----------
-
             document.addEventListener('DOMContentLoaded', function() {
-                // Load state
                 loadState();
                 seedData();
                 updateUIForUser();
 
-                // Sign In button
+                // Auth
                 document.getElementById('signInBtn').addEventListener('click', () => openModal('signin'));
-
-                // Close modal
                 document.getElementById('closeModal').addEventListener('click', closeModal);
                 document.getElementById('authModal').addEventListener('click', (e) => {
                     if (e.target === document.getElementById('authModal')) closeModal();
                 });
-
-                // Switch between sign in / sign up
                 document.getElementById('switchToSignUp').addEventListener('click', () => openModal('signup'));
                 document.getElementById('switchToSignIn').addEventListener('click', () => openModal('signin'));
 
-                // Do Sign In
                 document.getElementById('doSignIn').addEventListener('click', () => {
                     const username = document.getElementById('signInUsername').value.trim();
                     const password = document.getElementById('signInPassword').value.trim();
                     const errorEl = document.getElementById('signInError');
-
                     if (!username || !password) {
                         errorEl.textContent = 'Please fill in all fields';
                         return;
                     }
-
                     const result = signIn(username, password);
                     if (result.success) {
                         closeModal();
                         updateUIForUser();
                         showToast(`Welcome back, ${username}!`);
-                        // Clear form
                         document.getElementById('signInUsername').value = '';
                         document.getElementById('signInPassword').value = '';
                     } else {
@@ -1426,13 +1906,11 @@
                     }
                 });
 
-                // Do Sign Up
                 document.getElementById('doSignUp').addEventListener('click', () => {
                     const username = document.getElementById('signUpUsername').value.trim();
                     const email = document.getElementById('signUpEmail').value.trim();
                     const password = document.getElementById('signUpPassword').value.trim();
                     const errorEl = document.getElementById('signUpError');
-
                     if (!username || !email || !password) {
                         errorEl.textContent = 'Please fill in all fields';
                         return;
@@ -1441,13 +1919,11 @@
                         errorEl.textContent = 'Password must be at least 4 characters';
                         return;
                     }
-
                     const result = signUp(username, email, password);
                     if (result.success) {
                         closeModal();
                         updateUIForUser();
                         showToast(`Welcome, ${username}! Free week activated.`);
-                        // Clear form
                         document.getElementById('signUpUsername').value = '';
                         document.getElementById('signUpEmail').value = '';
                         document.getElementById('signUpPassword').value = '';
@@ -1456,7 +1932,6 @@
                     }
                 });
 
-                // User badge click (sign out)
                 document.getElementById('userBadge').addEventListener('click', () => {
                     if (state.currentUser) {
                         if (confirm('Sign out?')) {
@@ -1481,29 +1956,31 @@
                         return;
                     }
 
-                    // Check if user already approved
-                    const user = state.users.find(u => u.username === state.currentUser.username);
+                    const user = getCurrentUserObj();
                     if (user && user.isApproved) {
                         statusDiv.innerHTML = '<span style="color: #2ecc71;"><i class="fas fa-check-circle"></i> You already have full access!</span>';
                         return;
                     }
 
-                    // Add to pending approvals
+                    // Parse amount from message (simple)
+                    let amount = 0;
+                    const amountMatch = message.match(/Ksh(\d+)/i) || message.match(/KES(\d+)/i) || message.match(/(\d+)/);
+                    if (amountMatch) amount = parseInt(amountMatch[1]) || 0;
+
                     const pendingId = 'p' + Date.now();
                     state.pendingApprovals.push({
                         id: pendingId,
                         username: state.currentUser.username,
                         message: message,
-                        timestamp: new Date().toISOString()
+                        timestamp: new Date().toISOString(),
+                        amount: amount
                     });
                     saveState();
 
                     statusDiv.innerHTML = '<span style="color: #f9c74f;"><i class="fas fa-spinner fa-pulse"></i> Submitted! Waiting for admin approval...</span>';
                     input.value = '';
-
                     showToast('M-Pesa message submitted for approval');
 
-                    // If current user is admin, refresh pending list
                     if (state.currentUser.isAdmin) {
                         renderPendingApprovals();
                     }
@@ -1517,18 +1994,148 @@
                         tab.classList.add('active');
                         const target = tab.dataset.tab;
                         document.getElementById('tab-' + target).classList.add('active');
-
                         if (target === 'pending') renderPendingApprovals();
                         if (target === 'users') renderUserTable();
+                        if (target === 'games') renderGamesList();
+                        if (target === 'results') renderResultsList();
                     });
                 });
 
-                // Live standings update simulation
+                // Add game
+                document.getElementById('addGameBtn').addEventListener('click', () => {
+                    const match = document.getElementById('newGameMatch').value.trim();
+                    const prediction = document.getElementById('newGamePrediction').value.trim();
+                    const odds = parseFloat(document.getElementById('newGameOdds').value) || 0;
+                    const time = document.getElementById('newGameTime').value;
+                    const category = document.getElementById('newGameCategory').value.trim() || '5';
+
+                    if (!match || !prediction || !odds || !time) {
+                        document.getElementById('adminGameStatus').innerHTML = '<span style="color: #f96b6b;">Please fill all game fields</span>';
+                        return;
+                    }
+
+                    const newGame = {
+                        id: 'g' + Date.now(),
+                        match,
+                        prediction,
+                        odds,
+                        time,
+                        category,
+                        result: 'unmarked'
+                    };
+                    state.games.push(newGame);
+                    saveState();
+                    renderGamesList();
+                    renderResultsList();
+
+                    document.getElementById('newGameMatch').value = '';
+                    document.getElementById('newGamePrediction').value = '';
+                    document.getElementById('newGameOdds').value = '';
+                    document.getElementById('newGameTime').value = '';
+                    document.getElementById('newGameCategory').value = '';
+                    document.getElementById('adminGameStatus').innerHTML = '<span style="color: #2ecc71;">Game added!</span>';
+                    showToast('Game added successfully');
+                });
+
+                // Update 5 odds
+                document.getElementById('update5OddsBtn').addEventListener('click', () => {
+                    state.published5 = true;
+                    saveState();
+                    renderPicks();
+                    showToast('5-odds predictions updated');
+                });
+
+                // Update 10 odds
+                document.getElementById('update10OddsBtn').addEventListener('click', () => {
+                    state.published10 = true;
+                    saveState();
+                    renderPicks();
+                    showToast('10-odds predictions updated');
+                });
+
+                // Publish
+                document.getElementById('publishBtn').addEventListener('click', () => {
+                    state.published = true;
+                    // Set game start time to the earliest game time
+                    if (state.games.length > 0) {
+                        const times = state.games.map(g => new Date(g.time).getTime()).filter(t => !isNaN(t));
+                        if (times.length > 0) {
+                            state.gameStartTime = new Date(Math.min(...times)).toISOString();
+                        }
+                    }
+                    saveState();
+                    renderPicks();
+                    updateUIForUser();
+                    showToast('Predictions published! Odds will lock at first game time.');
+                });
+
+                // Pay tier selection
+                document.querySelectorAll('.pay-tier').forEach(tier => {
+                    tier.addEventListener('click', () => {
+                        document.querySelectorAll('.pay-tier').forEach(t => t.classList.remove('selected'));
+                        tier.classList.add('selected');
+                        const price = tier.dataset.price;
+                        document.getElementById('buyPrice').textContent = price;
+                    });
+                });
+
+                // Buy predictions
+                document.getElementById('buyPredictionsBtn').addEventListener('click', () => {
+                    const user = getCurrentUserObj();
+                    if (!user) {
+                        showToast('Please sign in first', 'error');
+                        return;
+                    }
+                    if (isGameStarted()) {
+                        showToast('Odds unavailable — games have started', 'error');
+                        return;
+                    }
+
+                    const selected = document.querySelector('.pay-tier.selected');
+                    if (!selected) {
+                        showToast('Please select an odds package', 'error');
+                        return;
+                    }
+
+                    const price = parseInt(selected.dataset.price);
+                    const oddsType = selected.dataset.odds;
+
+                    if (user.balance < price) {
+                        showToast('Insufficient balance. Please top up via M-Pesa.', 'error');
+                        return;
+                    }
+
+                    if (oddsType === '5' && user.purchased5) {
+                        showToast('You already purchased 5-odds predictions', 'error');
+                        return;
+                    }
+                    if (oddsType === '10' && user.purchased10) {
+                        showToast('You already purchased 10-odds predictions', 'error');
+                        return;
+                    }
+
+                    // Deduct balance
+                    user.balance -= price;
+                    if (oddsType === '5') user.purchased5 = true;
+                    if (oddsType === '10') user.purchased10 = true;
+
+                    // Initialize record if not exists
+                    if (!state.userRecords[user.username]) {
+                        state.userRecords[user.username] = { total: 0, right: 0, wrong: 0, pending: 0, predictions: [] };
+                    }
+
+                    saveState();
+                    updateUIForUser();
+                    renderPicks();
+                    showToast(`Purchased ${oddsType}-odds predictions for KES ${price}!`);
+                });
+
+                // Live standings update
                 setInterval(() => {
-                    const updateEl = document.getElementById('standingsUpdate');
-                    if (updateEl) {
+                    const el = document.getElementById('standingsUpdate');
+                    if (el) {
                         const mins = Math.floor(Math.random() * 5) + 1;
-                        updateEl.textContent = `Updated ${mins} min ago`;
+                        el.textContent = `Updated ${mins} min ago`;
                     }
                 }, 30000);
 
@@ -1536,13 +2143,20 @@
                 renderStandings();
                 renderLeaders();
                 renderPicks();
+                renderUserRecords();
 
-                console.log('Benafans fully initialized');
+                // Check game start time periodically
+                setInterval(() => {
+                    if (isGameStarted() && state.published) {
+                        renderPicks();
+                        document.getElementById('unavailableNotice').style.display = 'block';
+                    }
+                }, 10000);
+
+                console.log('Benafans v2 fully initialized');
             });
 
-            // Expose state for debugging (optional)
             window.__benafans = state;
-
         })();
     </script>
 </body>
